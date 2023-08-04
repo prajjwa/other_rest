@@ -1,20 +1,17 @@
 DROP TABLE IF EXISTS book;
 
 CREATE TABLE book (
-    id INT NOT NULL primary key,
+    id INT primary key,
     name VARCHAR(250) NOT NULL
 );
 
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE user (
-    id INT NOT NULL,
+CREATE TABLE users (
+    id INT primary key,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
-    role VARCHAR(20) NOT NULL,
-    owner_id INT NOT NULL,
-    FOREIGN key
-        (owner_id) REFERENCES owners (owner_id)
+    role VARCHAR(20) NOT NULL
 );
 
 DROP TABLE IF EXISTS bookUser;
@@ -23,7 +20,7 @@ CREATE TABLE bookUser (
     bookId INT NOT NULL,
     FOREIGN key (bookId) REFERENCES book (id),
     userId INT NOT NULL,
-    FOREIGN key (userId) REFERENCES user (id)
+    FOREIGN key (userId) REFERENCES users (id)
 );
 
 DROP TABLE IF EXISTS counterparty;

@@ -1,16 +1,31 @@
 package com.jwt.jwtExample.Entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Date;
+import java.util.Calendar;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 public class Security {
-	
+
+	@Id
 	private int ISIN;
 	private int CUSIP;
 	private String issuer;
-	private int MaturityDate;
+	private Date MaturityDate;
 	private int coupon;
 	private String type;
 	private int FaceValue;
 	private String Status;
-	
 	private int id;
 	public int getId() {
 		return id;
@@ -36,12 +51,6 @@ public class Security {
 	public void setIssuer(String issuer) {
 		this.issuer = issuer;
 	}
-	public int getMaturityDate() {
-		return MaturityDate;
-	}
-	public void setMaturityDate(int maturityDate) {
-		MaturityDate = maturityDate;
-	}
 	public int getCoupon() {
 		return coupon;
 	}
@@ -66,8 +75,6 @@ public class Security {
 	public void setStatus(String status) {
 		Status = status;
 	}
-	
-	
-	
+
 
 }

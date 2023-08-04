@@ -1,7 +1,23 @@
 package com.jwt.jwtExample.Entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Date;
+import java.util.Calendar;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
 public class Trade {
-	
+
+	@Id
 	private int id;
 	private int Bookid;
 	private int Counterpartyid;
@@ -9,9 +25,9 @@ public class Trade {
 	private int Quantity;
    private String Status;
    private int Price;
-   private int Buy_sell;
-   private int TradeDate;
-   private int SettlementDate;
+   private String Buy_sell;
+   private Date TradeDate;
+   private Date SettlementDate;
 	public int getId() {
 		return id;
 	}
@@ -54,27 +70,6 @@ public class Trade {
 	public void setPrice(int price) {
 		Price = price;
 	}
-	public int getBuy_sell() {
-		return Buy_sell;
-	}
-	public void setBuy_sell(int buy_sell) {
-		Buy_sell = buy_sell;
-	}
-	public int getTradeDate() {
-		return TradeDate;
-	}
-	public void setTradeDate(int tradeDate) {
-		TradeDate = tradeDate;
-	}
-	public int getSettlementDate() {
-		return SettlementDate;
-	}
-	public void setSettlementDate(int settlementDate) {
-		SettlementDate = settlementDate;
-	}
-	
-   
-   
-	
+
 
 }
