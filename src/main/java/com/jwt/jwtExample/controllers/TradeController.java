@@ -1,32 +1,30 @@
 package com.jwt.jwtExample.controllers;
 
-import com.jwt.jwtExample.Entity.Security;
 import com.jwt.jwtExample.Entity.Trade;
-import org.springframework.data.repository.query.Param;
+import com.jwt.jwtExample.repositories.TradeRepository;
+import com.jwt.jwtExample.services.TradeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-import java.text.DateFormat;
-import java.util.Calendar;
 
 @RestController
 public class TradeController {
 
+
+  @Autowired
+  private TradeService tradeService;
+
     @GetMapping("/bonds/trade")
     public Trade getTradeById(@RequestParam("id")Integer tradeId)
     {
-         return Trade.builder().id(tradeId).Bookid(2).Counterpartyid(3).SettlementDate(Date.valueOf("2023-08-04")).Buy_sell("Buy").TradeDate(Date.valueOf("2023-09-12")).build();
+         return tradeService.getById(tradeId);
     }
 
-    @GetMapping("/bonds/trade/{id}/security")
-    public Security retriveSecurityByTradeId(@PathVariable("id") Integer id)
+    @PostMapping("bonds/trade/create")
+    public void createTrade(@RequestBody Trade trade)
     {
-        return Security.builder().coupon(15).CUSIP(1).FaceValue(1000).ISIN(9).MaturityDate(Date.valueOf("2022-10-10")).build();
+        tradeService.saveTrade(trade);
     }
-
-//    @@lknlnlinet trade by ID
-//	Retrieve security to which the trade belongs
-//	Create and update a trade
 
 
 }

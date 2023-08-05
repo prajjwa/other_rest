@@ -1,6 +1,8 @@
 package com.jwt.jwtExample.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,39 +20,22 @@ import java.util.Calendar;
 public class Trade {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int Bookid;
-	private int Counterpartyid;
-	private int Securityid;
+	private int bookid;
+	private int counterpartyid;
+	private int securityid;
 	private int Quantity;
    private String Status;
    private int Price;
-   private String Buy_sell;
-   private Date TradeDate;
-   private Date SettlementDate;
+   private Integer Buy_sell;
+   private Date tradedate;
+   private Date settlementdate;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getBookid() {
-		return Bookid;
-	}
-	public void setBookid(int bookid) {
-		Bookid = bookid;
-	}
-	public int getCounterpartyid() {
-		return Counterpartyid;
-	}
-	public void setCounterpartyid(int counterpartyid) {
-		Counterpartyid = counterpartyid;
-	}
-	public int getSecurityid() {
-		return Securityid;
-	}
-	public void setSecurityid(int securityid) {
-		Securityid = securityid;
 	}
 	public int getQuantity() {
 		return Quantity;
@@ -70,6 +55,4 @@ public class Trade {
 	public void setPrice(int price) {
 		Price = price;
 	}
-
-
 }

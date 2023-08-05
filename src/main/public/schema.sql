@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS book;
 
 CREATE TABLE book (
-    id INT primary key,
+    id INT primary key ,
     name VARCHAR(250) NOT NULL
 );
 
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-    id INT primary key,
+    id INT primary key ,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
     role VARCHAR(20) NOT NULL
@@ -36,10 +36,11 @@ CREATE TABLE security (
     id INT NOT NULL primary key,
     isin INT NOT NULL,
     cusip INT NOT NULL,
-    maturityDate DATE NOT NULL,
+    issuer VARCHAR(20) NOT NULL,
+    maturitydate DATE NOT NULL,
     coupon INT NOT NULL,
     type VARCHAR(20) NOT NULL,
-    faceValue INT NOT NULL,
+    facevalue INT NOT NULL,
     status VARCHAR(20) NOT NULL
 );
 
