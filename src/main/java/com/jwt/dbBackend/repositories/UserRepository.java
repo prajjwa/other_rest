@@ -1,7 +1,7 @@
-package com.jwt.jwtExample.repositories;
+package com.jwt.dbBackend.repositories;
 
 
-import com.jwt.jwtExample.Entity.Users;
+import com.jwt.dbBackend.Entity.Users;
 import jakarta.persistence.Table;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

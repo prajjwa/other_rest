@@ -1,15 +1,13 @@
-package com.jwt.jwtExample.controllers;
+package com.jwt.dbBackend.controllers;
 
-import com.jwt.jwtExample.Entity.Trade;
-import com.jwt.jwtExample.repositories.TradeRepository;
-import com.jwt.jwtExample.services.TradeService;
+import com.jwt.dbBackend.Entity.Trade;
+import com.jwt.dbBackend.services.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class TradeController {
-
 
   @Autowired
   private TradeService tradeService;
@@ -25,6 +23,5 @@ public class TradeController {
     {
         tradeService.saveTrade(trade);
     }
-
 
 }

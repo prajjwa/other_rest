@@ -1,4 +1,5 @@
-package com.jwt.jwtExample.Entity;
+package com.jwt.dbBackend.Entity;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,12 +9,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-public class Book {
+public class BookUser {
     @Id
-    private Integer id;
-    private String name;
+    private Integer bookid;
+    private Integer userid;
 }

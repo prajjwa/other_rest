@@ -1,7 +1,7 @@
-package com.jwt.jwtExample.services;
+package com.jwt.dbBackend.services;
 
-import com.jwt.jwtExample.Entity.Trade;
-import com.jwt.jwtExample.repositories.TradeRepository;
+import com.jwt.dbBackend.Entity.Trade;
+import com.jwt.dbBackend.repositories.TradeRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class TradeService {
 
     @Autowired
-    TradeRepository tradeRepository;
+    private TradeRepository tradeRepository;
 
     public Trade getById(Integer tradeId)
     {

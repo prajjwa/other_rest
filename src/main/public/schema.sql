@@ -48,16 +48,16 @@ DROP TABLE IF EXISTS trade;
 
 CREATE TABLE trade (
     id INT NOT NULL primary key,
-    bookId INT NOT NULL,
-    counterpartyId INT NOT NULL,
-    securityId INT NOT NULL,
+    bookId INT,
+    counterpartyId INT ,
+    security_id INT,
     quantity INT NOT NULL,
     status VARCHAR(20) NOT NULL,
     price INT NOT NULL,
     buy_sell INT NOT NULL,
     tradeDate DATE NOT NULL,
     settlementDate DATE NOT NULL,
-    FOREIGN key (securityId) REFERENCES security (id),
+    FOREIGN key (security_id) REFERENCES security (id) ON DELETE SET NULL,
     FOREIGN key (bookId) REFERENCES book (id),
     FOREIGN key (counterpartyId) REFERENCES counterparty (id)
 );
