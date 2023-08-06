@@ -1,16 +1,13 @@
-package com.jwt.dbBackend.Entity;
+package com.jwt.dbBackend.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.Calendar;
 
 @Data
 @AllArgsConstructor
@@ -24,13 +21,17 @@ public class Trade {
 	private int id;
 	private int bookid;
 	private int counterpartyid;
-	private int security_id;
 	private int Quantity;
-   private String Status;
-   private int Price;
-   private Integer Buy_sell;
-   private Date tradedate;
-   private Date settlementdate;
+    private String Status;
+    private int Price;
+    private Integer Buy_sell;
+    private Date tradedate;
+    private Date settlementdate;
+
+    @JsonIgnore
+    @ManyToOne
+    @PrimaryKeyJoinColumn
+    private Security security;
 	public int getId() {
 		return id;
 	}

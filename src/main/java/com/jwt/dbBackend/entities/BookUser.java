@@ -1,4 +1,4 @@
-package com.jwt.dbBackend.Entity;
+package com.jwt.dbBackend.entities;
 
 
 import jakarta.persistence.Entity;

@@ -1,5 +1,6 @@
-package com.jwt.dbBackend.Entity;
+package com.jwt.dbBackend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,8 +28,8 @@ public class Security {
 	private String type;
 	private Integer facevalue;
 	private String status;
-	@OneToMany(targetEntity = Trade.class)
-	@JoinColumn(name = "security_id",referencedColumnName = "id")
+	@JsonIgnore
+	@OneToMany(mappedBy = "security")
 	private List<Trade> trades;
 
 }

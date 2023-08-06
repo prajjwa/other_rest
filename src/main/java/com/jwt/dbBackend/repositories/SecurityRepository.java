@@ -1,6 +1,6 @@
 package com.jwt.dbBackend.repositories;
 
-import com.jwt.dbBackend.Entity.Security;
+import com.jwt.dbBackend.entities.Security;
 import jakarta.persistence.Table;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,6 +18,8 @@ public interface SecurityRepository extends JpaRepository<Security,Integer> {
             value = "select * from security where id= :security_id"
     )
     Security ById(@Param("security_id") Integer securityId);
+
+
 
 
 
