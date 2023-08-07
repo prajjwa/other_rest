@@ -53,12 +53,22 @@ public class SecurityService {
         security_dao.setStatus(security.getStatus());
         security_dao.setType(security.getType());
 
-         this.save(security_dao);
+        this.save(security_dao);
     }
 
     public List<Security> getMatured()
     {
         return securityRepository.getMaturedSecurities();
+    }
+
+    public Integer getReturnsPastMaturity(List<Security> securities)
+    {
+        // bond1
+        // sell -2
+        // sell -2
+        // buy +5
+
+        return 0;
     }
 
 }

@@ -32,4 +32,13 @@ public class Security {
 	@OneToMany(mappedBy = "security")
 	private List<Trade> trades;
 
+	// bond1
+
+	// buy 5
+	//sell 3
+	// buy 1
+
+//	    3
+//	   coupon*number+facevalue;
+
 }

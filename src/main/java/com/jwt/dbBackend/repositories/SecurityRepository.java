@@ -25,12 +25,4 @@ public interface SecurityRepository extends JpaRepository<Security,Integer> {
     @Query("select s from Security s where s.maturitydate>=CURRENT_DATE")
     List<Security> getMaturedSecurities();
 
-//
-//    @Query()
-//    Security ById()
-
-
-
-
-
 }
