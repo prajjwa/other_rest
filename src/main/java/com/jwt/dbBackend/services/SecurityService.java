@@ -69,12 +69,10 @@ public class SecurityService {
         java.sql.Date current_date =new java.sql.Date(System.currentTimeMillis());
         // System.out.println("Current Date: "+current_date);
 
-        for(int i=0;i<securities.size();i++){
-            Security security = securities.get(i);
+        for(Security security: securities){
             List<Trade> trades = security.getTrades();
             int netQuantity=0;
-            for(int j=0;j<trades.size();j++){
-                Trade trade = trades.get(j);
+            for(Trade trade: trades){
                 if(trade.getBuy_sell()==1){
                     netQuantity+=trade.getQuantity();
                 }else{
