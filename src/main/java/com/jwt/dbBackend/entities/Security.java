@@ -20,13 +20,13 @@ public class Security {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	private Integer isin;
-	private Integer cusip;
+	private String isin;
+	private String cusip;
 	private String issuer;
 	private Date maturitydate;
-	private Integer coupon;
+	private Double coupon;
 	private String type;
-	private Integer facevalue;
+	private Double facevalue;
 	private String status;
 	@JsonIgnore
 	@OneToMany(mappedBy = "security")

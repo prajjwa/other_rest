@@ -16,9 +16,13 @@ public class TradeController {
   private TradeService tradeService;
 
     @GetMapping("/bonds/trade")
-    public Trade getTradeById(@RequestParam("id")Integer tradeId)
+    public List<Trade> getTradeById(@RequestParam(value="id",required = false, defaultValue = "-1")Integer tradeId)
     {
-         return tradeService.getById(tradeId);
+      if(tradeId==-1) {
+        return tradeService.getAllTrades();
+      }
+
+      return List.of(tradeService.getById(tradeId));
     }
 
     @GetMapping("/bonds/trade/security")

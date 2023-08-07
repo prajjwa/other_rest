@@ -59,4 +59,7 @@ public class TradeService {
         return  tradeRepository.getMaturedBonds();
     }
 
+    public List<Trade> getAllTrades() {
+        return tradeRepository.findAll();
+    }
 }

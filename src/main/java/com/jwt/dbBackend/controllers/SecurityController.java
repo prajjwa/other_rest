@@ -15,7 +15,6 @@ public class SecurityController {
     @Autowired
     SecurityService securityService;
 
-
     @GetMapping("/bonds/security")
     public List<Security> getSecurityById(@RequestParam(value="id",required = false, defaultValue = "-1")Integer securityId)
     {
@@ -50,5 +49,9 @@ public class SecurityController {
         securityService.update(security);
     }
 
-
+   @GetMapping("/bonds/security/matured")
+    public List<Security> maturedSecurity()
+   {
+       return securityService.getMatured();
+   }
 }

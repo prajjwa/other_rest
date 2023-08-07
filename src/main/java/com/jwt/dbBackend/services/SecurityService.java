@@ -56,4 +56,9 @@ public class SecurityService {
          this.save(security_dao);
     }
 
+    public List<Security> getMatured()
+    {
+        return securityRepository.getMaturedSecurities();
+    }
+
 }

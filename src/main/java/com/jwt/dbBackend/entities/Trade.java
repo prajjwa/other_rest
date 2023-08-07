@@ -23,7 +23,7 @@ public class Trade {
 	private int counterpartyid;
 	private int Quantity;
     private String Status;
-    private int Price;
+    private Double Price;
     private Integer Buy_sell;
     private Date tradedate;
     private Date settlementdate;
@@ -50,10 +50,10 @@ public class Trade {
 	public void setStatus(String status) {
 		Status = status;
 	}
-	public int getPrice() {
+	public Double getPrice() {
 		return Price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Double price) {
 		Price = price;
 	}
 }
