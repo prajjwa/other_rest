@@ -1,10 +1,3 @@
-DROP TABLE IF EXISTS book;
-
-CREATE TABLE book (
-    id INT primary key ,
-    name VARCHAR(250) NOT NULL
-);
-
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
@@ -14,11 +7,24 @@ CREATE TABLE users (
     role VARCHAR(20) NOT NULL
 );
 
+
+
+DROP TABLE IF EXISTS book;
+
+CREATE TABLE book (
+    id INT primary key ,
+    name VARCHAR(250) NOT NULL,
+    user_id INT,
+    FOREIGN key (user_id) REFERENCES users (id) ON DELETE SET NULL
+);
+
+
+
 DROP TABLE IF EXISTS bookUser;
 
 CREATE TABLE bookUser (
-    bookId INT NOT NULL,
-    FOREIGN key (bookId) REFERENCES book (id),
+    bookId INT,
+    FOREIGN key (bookId) REFERENCES book (id) ON DELETE SET NULL,
     userId INT NOT NULL,
     FOREIGN key (userId) REFERENCES users (id)
 );
@@ -48,7 +54,7 @@ DROP TABLE IF EXISTS trade;
 
 CREATE TABLE trade (
     id INT NOT NULL primary key,
-    bookId INT,
+    book_id INT,
     counterpartyId INT ,
     security_id INT,
     quantity INT NOT NULL,
@@ -58,6 +64,6 @@ CREATE TABLE trade (
     tradeDate DATE NOT NULL,
     settlementDate DATE NOT NULL,
     FOREIGN key (security_id) REFERENCES security (id) ON DELETE SET NULL,
-    FOREIGN key (bookId) REFERENCES book (id),
+    FOREIGN key (book_id) REFERENCES book (id) ON DELETE SET NULL,
     FOREIGN key (counterpartyId) REFERENCES counterparty (id)
 );

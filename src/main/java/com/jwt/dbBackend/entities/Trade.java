@@ -19,7 +19,7 @@ public class Trade {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private int bookid;
+//	private int book_id;
 	private int counterpartyid;
 	private int Quantity;
     private String Status;
@@ -32,6 +32,12 @@ public class Trade {
     @ManyToOne
     @PrimaryKeyJoinColumn
     private Security security;
+
+    @JsonIgnore
+	@ManyToOne
+	@PrimaryKeyJoinColumn
+    private Book book;
+
 	public int getId() {
 		return id;
 	}

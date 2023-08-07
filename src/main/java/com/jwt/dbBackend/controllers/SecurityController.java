@@ -16,9 +16,6 @@ public class SecurityController {
     @Autowired
     SecurityService securityService;
 
-//    @Autowired
-//    SecurityRepository repository;
-
     @GetMapping("/bonds/security")
     public List<Security> getSecurityById(@RequestParam(value="id",required = false, defaultValue = "-1")Integer securityId)
     {

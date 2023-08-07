@@ -1,14 +1,14 @@
 package com.jwt.dbBackend.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -24,4 +24,7 @@ public class Users {
     private String email;
     private String role;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Book> bookList;
 }
