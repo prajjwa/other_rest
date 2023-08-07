@@ -2,6 +2,7 @@ package com.jwt.dbBackend.services;
 
 import com.jwt.dbBackend.entities.Security;
 import com.jwt.dbBackend.entities.Trade;
+import com.jwt.dbBackend.pojos.DateRangeRequestObj;
 import com.jwt.dbBackend.repositories.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,6 +70,11 @@ public class SecurityService {
         // buy +5
 
         return 0;
+    }
+
+    public List<Security> getSecuritiesBasedOnDates(DateRangeRequestObj obj)
+    {
+        return securityRepository.getSecurityFromDateRange(obj.getStartDate(),obj.getEndDate());
     }
 
 }

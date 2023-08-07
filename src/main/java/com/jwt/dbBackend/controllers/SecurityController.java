@@ -2,6 +2,7 @@ package com.jwt.dbBackend.controllers;
 
 import com.jwt.dbBackend.entities.Security;
 import com.jwt.dbBackend.entities.Trade;
+import com.jwt.dbBackend.pojos.DateRangeRequestObj;
 import com.jwt.dbBackend.repositories.SecurityRepository;
 import com.jwt.dbBackend.services.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class SecurityController {
 
     @Autowired
     SecurityService securityService;
+
+//    @Autowired
+//    SecurityRepository repository;
 
     @GetMapping("/bonds/security")
     public List<Security> getSecurityById(@RequestParam(value="id",required = false, defaultValue = "-1")Integer securityId)
@@ -53,5 +57,11 @@ public class SecurityController {
     public List<Security> maturedSecurity()
    {
        return securityService.getMatured();
+   }
+
+   @GetMapping("/bonds/security/daterange")
+   public List<Security> dateRange(@RequestBody DateRangeRequestObj obj)
+   {
+       return securityService.getSecuritiesBasedOnDates(obj);
    }
 }

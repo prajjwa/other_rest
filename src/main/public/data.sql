@@ -10,3 +10,8 @@ INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,st
 
 INSERT INTO trade (id,bookid,counterpartyid,security_id,quantity,status,price,buy_sell,tradedate,settlementdate) VALUES(0,0,0,0,10,'Pending',12,1,'2023-08-01','2023-08-08');
 
+
+
+
+
+

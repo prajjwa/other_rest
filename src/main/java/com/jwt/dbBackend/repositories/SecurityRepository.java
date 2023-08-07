@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -24,5 +25,11 @@ public interface SecurityRepository extends JpaRepository<Security,Integer> {
 
     @Query("select s from Security s where s.maturitydate>=CURRENT_DATE")
     List<Security> getMaturedSecurities();
+
+    @Query(
+            nativeQuery = true,
+            value="select * from Security where maturitydate >= :start_date and maturitydate <= :end_date"
+    )
+    List<Security> getSecurityFromDateRange(@Param("start_date") Date startDate,@Param("end_date") Date endDate);
 
 }
