@@ -33,7 +33,7 @@ public class TradeService {
 
         trade_dao.setPrice(trade.getPrice());
         trade_dao.setQuantity(trade.getQuantity());
-        trade_dao.setBookid(trade.getBookid());
+//        trade_dao.setBookid(trade.getBookid());
         trade_dao.setBuy_sell(trade.getBuy_sell());
         trade_dao.setCounterpartyid(trade.getCounterpartyid());
         trade_dao.setSettlementdate(trade.getSettlementdate());
