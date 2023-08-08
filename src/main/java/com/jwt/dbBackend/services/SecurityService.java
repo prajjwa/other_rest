@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class SecurityService {
@@ -62,14 +63,31 @@ public class SecurityService {
         return securityRepository.getMaturedSecurities();
     }
 
-    public Integer getReturnsPastMaturity(List<Security> securities)
+    public Double getReturnsPastMaturity(List<Security> securities)
     {
+        double returns =0.0;
+        java.sql.Date current_date =new java.sql.Date(System.currentTimeMillis());
+        // System.out.println("Current Date: "+current_date);
+
+        for(Security security: securities){
+            List<Trade> trades = security.getTrades();
+            int netQuantity=0;
+            for(Trade trade: trades){
+                if(trade.getBuy_sell()==1){
+                    netQuantity+=trade.getQuantity();
+                }else{
+                    netQuantity-=trade.getQuantity();
+                }
+            }
+            long diffInMillies = Math.abs(current_date.getTime() - security.getMaturitydate().getTime());
+            long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+            returns = netQuantity*(security.getCoupon()*diff + security.getFacevalue());
+        }
         // bond1
         // sell -2
         // sell -2
         // buy +5
-
-        return 0;
+        return returns;
     }
 
     public List<Security> getSecuritiesBasedOnDates(DateRangeRequestObj obj)
