@@ -34,12 +34,11 @@ public class UserController {
     {
         Users user=service.getByUsername(users.getEmail());
 
-        if(user==null||users.getPassword()!=user.getPassword()) {
+        if(user==null||!(users.getPassword().equals(user.getPassword()))) {
             return "not authorized";
         }
 
-        return "Authorized";
+        return user.getRole();
     }
-
 
 }
