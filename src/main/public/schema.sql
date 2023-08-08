@@ -44,7 +44,8 @@ CREATE TABLE security (
     coupon DOUBLE NOT NULL,
     type VARCHAR(220) NOT NULL,
     facevalue DOUBLE NOT NULL,
-    status VARCHAR(20) NOT NULL
+    status VARCHAR(20) NOT NULL,
+    isfav INT NOT NULL DEFAULT 0
 );
 
 DROP TABLE IF EXISTS trade;

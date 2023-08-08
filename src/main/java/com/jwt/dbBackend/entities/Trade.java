@@ -19,7 +19,7 @@ public class Trade {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-//	private int book_id;
+
 	private int counterpartyid;
 	private int Quantity;
     private String Status;
@@ -27,6 +27,7 @@ public class Trade {
     private Integer Buy_sell;
     private Date tradedate;
     private Date settlementdate;
+
 
     @JsonIgnore
     @ManyToOne

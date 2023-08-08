@@ -1,6 +1,7 @@
 package com.jwt.dbBackend.controllers;
 
 import com.jwt.dbBackend.entities.Book;
+import com.jwt.dbBackend.entities.Security;
 import com.jwt.dbBackend.entities.Trade;
 import com.jwt.dbBackend.entities.Users;
 import com.jwt.dbBackend.services.UserService;
@@ -24,21 +25,27 @@ public class UserController {
     }
 
     @GetMapping("/bonds/user/books")
-    public List<Book> getBooks(@RequestParam("userId") Integer userId)
+    public List<Book> getBooks(@RequestParam("username") String username)
     {
-        return service.getUsersBook(userId);
+        return service.getUsersBook(username);
     }
 
-    @GetMapping("/bonds/user/login")
+    @PostMapping("/bonds/user/login")
     public String login(@RequestBody Users users)
     {
         Users user=service.getByUsername(users.getEmail());
 
         if(user==null||!(users.getPassword().equals(user.getPassword()))) {
-            return "not authorized";
+            return "invalid";
         }
 
         return user.getRole();
+    }
+
+    @GetMapping("/bonds/user/fav")
+    public List<Security> getFavourite(@RequestParam("username") String username)
+    {
+        return  service.getFavBonds(username);
     }
 
 }

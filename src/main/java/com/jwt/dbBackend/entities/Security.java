@@ -31,6 +31,7 @@ public class Security {
 	@JsonIgnore
 	@OneToMany(mappedBy = "security")
 	private List<Trade> trades;
+	private Integer isfav;
 
 	// bond1
 

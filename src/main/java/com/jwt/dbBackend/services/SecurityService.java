@@ -54,6 +54,7 @@ public class SecurityService {
         security_dao.setMaturitydate(security.getMaturitydate());
         security_dao.setStatus(security.getStatus());
         security_dao.setType(security.getType());
+        security_dao.setIsfav(security.getIsfav());
 
         this.save(security_dao);
     }
@@ -93,6 +94,23 @@ public class SecurityService {
     public List<Security> getSecuritiesBasedOnDates(DateRangeRequestObj obj)
     {
         return securityRepository.getSecurityFromDateRange(obj.getStartDate(),obj.getEndDate());
+    }
+
+
+    public void setfav(Integer securityId)
+    {
+
+        Security security_dao=this.getById(securityId);
+
+        if(security_dao.getIsfav()==1) {
+            security_dao.setIsfav(0);
+        }
+        else
+        {
+            security_dao.setIsfav(1);
+        }
+
+        this.save(security_dao);
     }
 
 }

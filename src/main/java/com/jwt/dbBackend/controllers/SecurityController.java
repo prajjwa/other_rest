@@ -62,4 +62,11 @@ public class SecurityController {
    {
        return securityService.getSecuritiesBasedOnDates(obj);
    }
+
+    @GetMapping("/bonds/security/fav")
+    public void favbond(@RequestParam("id")Integer tradeId)
+    {
+        securityService.setfav(tradeId);
+    }
+
 }
