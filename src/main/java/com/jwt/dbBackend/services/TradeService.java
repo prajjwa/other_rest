@@ -31,6 +31,8 @@ public class TradeService {
 
         Trade trade_dao=this.getById(trade.getId());
 
+//        if(trade_dao)
+
         trade_dao.setPrice(trade.getPrice());
         trade_dao.setQuantity(trade.getQuantity());
         trade_dao.setBuy_sell(trade.getBuy_sell());

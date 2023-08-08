@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users;
+--DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT primary key ,
@@ -8,7 +8,7 @@ CREATE TABLE users (
     password VARCHAR(50) NOT NULL
 );
 
-DROP TABLE IF EXISTS book;
+--DROP TABLE IF EXISTS book;
 
 CREATE TABLE book (
     id INT primary key ,
@@ -17,7 +17,7 @@ CREATE TABLE book (
     FOREIGN key (user_id) REFERENCES users (id) ON DELETE SET NULL
 );
 
-DROP TABLE IF EXISTS bookUser;
+--DROP TABLE IF EXISTS bookUser;
 
 CREATE TABLE bookUser (
     bookId INT,
@@ -26,14 +26,14 @@ CREATE TABLE bookUser (
     FOREIGN key (userId) REFERENCES users (id)
 );
 
-DROP TABLE IF EXISTS counterparty;
+--DROP TABLE IF EXISTS counterparty;
 
 CREATE TABLE counterparty (
     id INT NOT NULL primary key,
     name VARCHAR(250) NOT NULL
 );
 
-DROP TABLE IF EXISTS security;
+--DROP TABLE IF EXISTS security;
 
 CREATE TABLE security (
     id INT NOT NULL primary key,
@@ -48,7 +48,7 @@ CREATE TABLE security (
     isfav INT NOT NULL DEFAULT 0
 );
 
-DROP TABLE IF EXISTS trade;
+--DROP TABLE IF EXISTS trade;
 
 CREATE TABLE trade (
     id INT NOT NULL primary key,

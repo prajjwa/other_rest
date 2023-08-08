@@ -18,7 +18,7 @@ import java.util.List;
 public class Security {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String isin;
 	private String cusip;

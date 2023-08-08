@@ -17,7 +17,7 @@ import java.sql.Date;
 public class Trade {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	private int counterpartyid;

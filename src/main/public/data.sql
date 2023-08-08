@@ -10,7 +10,6 @@ INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,st
 
 INSERT INTO trade (id,book_id,counterpartyid,security_id,quantity,status,price,buy_sell,tradedate,settlementdate) VALUES(0,0,0,0,10,'Pending',12,1,'2023-08-01','2023-08-08');
 
-
 INSERT INTO users(id,name,email,role,password) VALUES(1,'John Doe','john@gmail.com','user','pass');
 INSERT INTO users(id,name,email,role,password) VALUES(2,'Jane Smith','jane@gmail.com','admin','pass');
 INSERT INTO users(id,name,email,role,password) VALUES(3,'Michael Lee','michael@gmail.com','user','pass');
