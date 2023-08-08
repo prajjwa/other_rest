@@ -25,7 +25,6 @@ public class Book {
     @PrimaryKeyJoinColumn
     private Users user;
 
-
     @JsonIgnore
     @OneToMany(mappedBy = "book")
     private List<Trade> tradeList;

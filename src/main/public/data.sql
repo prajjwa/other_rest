@@ -1,4 +1,4 @@
-INSERT INTO users(id,name,email,role) VALUES(0,'Jeff','tom@gmail.com','admin');
+INSERT INTO users(id,name,email,role,password) VALUES(0,'Jeff','tom@gmail.com','admin','wordpass');
 
 INSERT INTO book (id, name,user_id) VALUES (0, 'Book1',0);
 

@@ -1,17 +1,17 @@
 package com.jwt.dbBackend.controllers;
 
 import com.jwt.dbBackend.entities.Book;
+import com.jwt.dbBackend.entities.Trade;
 import com.jwt.dbBackend.entities.Users;
 import com.jwt.dbBackend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins="*")
 public class UserController {
 
     @Autowired
@@ -28,5 +28,18 @@ public class UserController {
     {
         return service.getUsersBook(userId);
     }
+
+    @GetMapping("/bonds/user/login")
+    public String login(@RequestBody Users users)
+    {
+        Users user=service.getByUsername(users.getEmail());
+
+        if(user==null||users.getPassword()!=user.getPassword()) {
+            return "not authorized";
+        }
+
+        return "Authorized";
+    }
+
 
 }

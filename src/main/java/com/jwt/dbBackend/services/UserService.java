@@ -25,4 +25,9 @@ public class UserService {
         return  this.getUserById(userId).getBookList();
     }
 
+    public Users getByUsername(String username)
+    {
+        return userRepository.ByUsername(username);
+    }
+
 }

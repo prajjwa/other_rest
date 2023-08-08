@@ -4,10 +4,9 @@ CREATE TABLE users (
     id INT primary key ,
     name VARCHAR(250) NOT NULL,
     email VARCHAR(250) NOT NULL,
-    role VARCHAR(20) NOT NULL
+    role VARCHAR(20) NOT NULL,
+    password VARCHAR(50) NOT NULL
 );
-
-
 
 DROP TABLE IF EXISTS book;
 
@@ -17,8 +16,6 @@ CREATE TABLE book (
     user_id INT,
     FOREIGN key (user_id) REFERENCES users (id) ON DELETE SET NULL
 );
-
-
 
 DROP TABLE IF EXISTS bookUser;
 
