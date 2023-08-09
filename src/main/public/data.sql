@@ -51,10 +51,10 @@ INSERT INTO counterparty (id,name) VALUES(6,'MNO Securities');
 INSERT INTO counterparty (id,name) VALUES(7,'PQR Holdings');
 INSERT INTO counterparty (id,name) VALUES(8,'STU Capital');
 
-INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(1,'ISIN12345678','CUSIP1234','Apas pvt. ltd.','2025-12-31',0.05,'Corporate Bond',1000,'active',0);
-INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(2,'ISIN87654321','CUSIP4321','Goverment Bond','2030-06-30',0.03,'Goverment Bond',1000,'active',0);
-INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(3,'ISIN55555555','CUSIP7890','pop pvt. ltd.','2028-08-15',0.04,'Corporate Bond',1000,'active',0);
-INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(4,'ISIN88888888','CUSIP1010','Goverment Bond','2032-03-20',0.025,'Goverment Bond',1000,'active',0);
+INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(1,'ISIN12345678','CUSIP1234','Apas pvt. ltd.','2025-12-31',1.05,'Corporate Bond',1000,'active',0);
+INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(2,'ISIN87654321','CUSIP4321','Goverment Bond','2030-06-30',4.03,'Goverment Bond',1000,'active',0);
+INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(3,'ISIN55555555','CUSIP7890','pop pvt. ltd.','2028-08-15',3.04,'Corporate Bond',1000,'active',0);
+INSERT INTO security (id,isin,cusip,issuer,maturitydate,coupon,type,facevalue,status,isfav) VALUES(4,'ISIN88888888','CUSIP1010','Goverment Bond','2032-03-20',7.025,'Goverment Bond',1000,'active',0);
 
 
 INSERT INTO trade (id,book_id,counterpartyid,security_id,quantity,status,price,buy_sell,tradedate,settlementdate) VALUES(1,1,1,1,100,'Completed',105.0,1,'2023-07-15','2023-07-20');

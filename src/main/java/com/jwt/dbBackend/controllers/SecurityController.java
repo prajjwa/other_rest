@@ -27,10 +27,26 @@ public class SecurityController {
         return List.of(securityService.getById(securityId));
     }
 
+//    @PostMapping("bonds/security/create")
+//    public void  createSecurity(@RequestBody Security security)
+//    {
+//
+//        securityService.save(security);
+//    }
+
+
     @PostMapping("bonds/security/create")
     public void  createSecurity(@RequestBody Security security)
     {
-        securityService.save(security);
+
+        Security sec=securityService.getById(security.getId());
+
+        if(sec!=null)
+        {
+            securityService.update(security);
+        }
+        else
+           securityService.save(security);
     }
 
     @GetMapping("/bonds/security/trade")

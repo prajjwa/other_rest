@@ -43,9 +43,9 @@ CREATE TABLE security (
     maturitydate DATE NOT NULL,
     coupon DOUBLE NOT NULL,
     type VARCHAR(220) NOT NULL,
-    facevalue DOUBLE NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    isfav INT NOT NULL DEFAULT 0
+    facevalue DOUBLE,
+    status VARCHAR(20),
+    isfav INT DEFAULT 0
 );
 
 --DROP TABLE IF EXISTS trade;
